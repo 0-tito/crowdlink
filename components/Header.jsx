@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-
+import { Button } from '@mui/material';
 export default function Header() {
   return (
     <Box
@@ -11,13 +11,12 @@ export default function Header() {
       alignItems="center"
       marginBottom={"5%"}
     >
-      <p style={{ margin: 0, fontWeight: "bold" }}>crowd coin</p>
+      <p style={{ margin: 0}}>crowd coin</p>
 
       <Box display="flex" alignItems="center" gap={2}>
-        <Fab variant="extended">campaigns</Fab>
-        <Fab color="primary" aria-label="add">
+        <Button variant="extended">campaigns</Button>
           <AddIcon />
-        </Fab>
+        
       </Box>
     </Box>
   );

@@ -1,17 +1,19 @@
 "use client"
-import { TextField, Button, Box, Typography } from "@mui/material"
+import { TextField, Button, Box, Typography, CircularProgress } from "@mui/material"
 import factory from "../../../foctory.js"
 import web3 from "../../../web3"
 import { useState } from "react"
 import textFieldStyles from "./textFieldStyles.js"
 import { campaignTextFieldSlots } from "./textFieldSlots.js"
 import useCampaignForm from "../../../components/hooks/useCampaignForm.jsx"
-
+import { useRouter } from "next/navigation"
 import NewCampaignForm from "../../../components/NewCampaignForm"
+// import { LoadingButton } from "@mui/lab"
 
 export default function NewCampaign() {
   const [errorMessage, setErrorMessage] = useState("")
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -29,10 +31,11 @@ export default function NewCampaign() {
         .send({
           from: account[0]
         })
+      router.push("/")
     } catch (error) {
       setErrorMessage(error.message)
     }
-setLoading(false)
+    setLoading(false)
   }
 
   return (
@@ -45,7 +48,7 @@ setLoading(false)
         sx={{ display: "flex", flexDirection: "column", gap: 2, flexWrap: "wrap", width: "100%" }}
       >
 
-        <Typography fontWeight={"900"}>Create a Campaign</Typography>
+        <Typography component={"h2"}>Create a Campaign</Typography>
 
         <Typography>minimum contribution</Typography>
         <TextField
@@ -60,13 +63,18 @@ setLoading(false)
           sx={textFieldStyles.root}
           slotProps={campaignTextFieldSlots()}
         />
-
-        <Button loading={loading} type="submit" variant="contained" sx={{ width: "20%" }}>
+           <Button loading={loading} type="submit" variant="contained" sx={{
+          width: "20%",
+          "&.Mui-disabled": {
+            bgcolor: "rgba(21, 129, 211, 1)",
+          },
+        }}
+         loadingIndicator={<CircularProgress size={20} sx={{ color: "white" }} />}>
           Create!!
         </Button>
+
       </Box>
     </>
   )
 }
-
 
