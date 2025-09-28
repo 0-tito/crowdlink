@@ -63,26 +63,6 @@ export default async function renderCampaigns() {
                     create campaign
                 </Button>
             </Box>
-
-            {/* <Box  display="flex" flexDirection="row" justifyContent="space-between" alignItems="flex-start" width={"auto"}>
-                <Box >
-                    {campaigns.map(campaign => (
-                        <Card key={campaign} sx={{ mb: 2 }}  width="auto">
-                            <CardContent>
-                                <Typography variant="h5" component="div">
-                                    {campaign}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small">view campaigns</Button>
-                            </CardActions>
-                        </Card>
-                    ))}
-                </Box>
-                <Button variant="contained" startIcon={<AddIcon />} >
-                    create campaign
-                </Button>
-         </Box> */}
         </>
     );
 }
