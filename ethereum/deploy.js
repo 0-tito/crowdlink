@@ -10,11 +10,12 @@ const provider = new HDWalletProvider(
 )
 const web3 = new Web3(provider)
 // deploy code will go here
+ console.log(web3)
  
 const deploy = async () =>  {
 try{
       const  accounts = await web3.eth.getAccounts()
-
+   
   console.log(`attempting to deploy from`, accounts[0])
 
   const result = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
