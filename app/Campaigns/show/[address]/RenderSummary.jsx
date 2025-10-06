@@ -14,6 +14,7 @@ export default function RenderSummary({ summary,address }) {
         const router = useRouter()
         const [loading ,setLoading ] = useState(false)
        const [errorMessage,setErrorMessage] = useState("")
+       
 async function onSubmit(userInput){
     try {
         setLoading(true)
@@ -45,7 +46,7 @@ async function onSubmit(userInput){
         <ContribueForm onSubmit={onSubmit} loading={loading} errorMessage={errorMessage}/>
       </Grid>
       <Grid size={3}> 
-       <Link href={`/Campaigns/requests`} >
+       <Link href={`/Campaigns/show/${address}/requests`} >
   <Button size="small" variant="contained">view requests</Button>
 </Link>
       </Grid>
