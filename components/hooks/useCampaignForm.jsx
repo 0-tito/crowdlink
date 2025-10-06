@@ -3,12 +3,10 @@ import { useForm } from "react-hook-form"; // manages form state.
 import { zodResolver } from "@hookform/resolvers/zod"; // connects zod with react form hook
 import { z } from "zod";  //defines schema
 import web3 from "../../web3";
-import { number } from "zod/v4-mini";
 
 function campaignSchema(initialContribution){
      return z.object({
   minimumContribution: z.coerce.number().superRefine((value,ctx) => {
-    console.log("ctx:",ctx)
     if(!!Number.isNaN(value)){
         ctx.addIssue({
             code: z.ZodIssueCode.custom, 
