@@ -4,7 +4,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-      <Box maxWidth={"85%"} margin={"auto"}>
+      <Box maxWidth={"88%"} margin={"auto"}>
         <Header />
         {children} 
         </Box>

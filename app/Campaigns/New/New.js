@@ -1,13 +1,13 @@
 "use client"
 import { TextField, Button, Box, Typography, CircularProgress } from "@mui/material"
-import factory from "../../../foctory.js"
+import factory from "../../../ethereum/foctory.js"
 import web3 from "../../../web3"
 import { useState } from "react"
 import textFieldStyles from "./textFieldStyles.js"
 import { campaignTextFieldSlots } from "./textFieldSlots.js"
 import useCampaignForm from "../../../components/hooks/useCampaignForm.jsx"
 import { useRouter } from "next/navigation"
-import NewCampaignForm from "../../../components/NewCampaignForm"
+import NewCampaignForm from "../../../components/ContributeForm.jsx"
 // import { LoadingButton } from "@mui/lab"
 
 export default function NewCampaign() {
@@ -19,10 +19,8 @@ export default function NewCampaign() {
     handleSubmit,
     formState: { errors },
   } = useCampaignForm()
-  console.log(errors)
 
   const onSubmit = async (userInput) => {
-    console.log("form data", userInput)
     setLoading(true)
     setErrorMessage("")
     try {
@@ -69,7 +67,7 @@ export default function NewCampaign() {
             bgcolor: "rgba(21, 129, 211, 1)",
           },
         }}
-         loadingIndicator={<CircularProgress size={20} sx={{ color: "white" }} />}>
+         loadingIndicator={<CircularProgress size={20} sx={{ color: "white" }} /> }>
           Create!!
         </Button>
 

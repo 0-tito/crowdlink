@@ -1,5 +1,6 @@
+"use client"
 import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
+import Link from 'next/link';
 import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/material';
 export default function Header() {
@@ -11,12 +12,11 @@ export default function Header() {
       alignItems="center"
       marginBottom={"5%"}
     >
-      <p style={{ margin: 0}}>crowd coin</p>
+      <Link href={"/"}> <Button style={{ margin: 0, color:"black"}}>crowd coin</Button> </Link>
 
       <Box display="flex" alignItems="center" gap={2}>
-        <Button variant="extended">campaigns</Button>
-          <AddIcon />
-        
+        <Link href={"/"}> <Button variant="extended" sx={{color:"black"}} >campaigns</Button> </Link>
+         <Link href={"/Campaigns/New"}> <AddIcon color='black' /> </Link>
       </Box>
     </Box>
   );

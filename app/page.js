@@ -1,7 +1,7 @@
-import CampaignList from "./campaignList"
+import RenderCampaigns from "./RenderCampaigns"
 
 export default function Page() {
   return <>
-   <CampaignList />
+   <RenderCampaigns />
   </>
 }
