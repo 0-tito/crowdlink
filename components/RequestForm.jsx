@@ -7,7 +7,14 @@ import RequestFormErrorField from "./RequestFormErrorField";
 import Link from "next/link";
 
 const requestFormSchema = z.object({
-    description: z.string().min(1, "Request description cannot be empty"),
+    description: z.string().superRefine((value,ctx) => {
+        if(value === ''){
+         ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "request description cannot be empty"
+         })
+        }
+    })
     value: z.string().min(1,"value most be added"),
     recipient: z.string().min(1,"reccipient address is needed")
 })
@@ -26,7 +33,6 @@ const outlinedInputStyles = {
             width: "86%",
             bgcolor: "white",
         }
-
     }
 }
 
