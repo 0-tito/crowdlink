@@ -14,7 +14,7 @@ const requestFormSchema = z.object({
             message: "request description cannot be empty"
          })
         }
-    })
+    }),
     value: z.string().min(1,"value most be added"),
     recipient: z.string().min(1,"reccipient address is needed")
 })
